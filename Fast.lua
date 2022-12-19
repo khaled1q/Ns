@@ -3160,7 +3160,7 @@ return send(msg_chat_id,msg_id,"•  تم مسح الرد من الردود ال
 end
 end
 if Redis:get(Fast.."Broadcasting:Groups:Pin" .. msg_chat_id .. ":" .. msg.sender_id.user_id) then 
-if text == "الغاء" or text == 'الغاء الامر • ' then   
+if text == "الغاء" or text == 'الغاء الامر' then   
 Redis:del(Fast.."Broadcasting:Groups:Pin" .. msg_chat_id .. ":" .. msg.sender_id.user_id) 
 return send(msg_chat_id,msg_id, "\n•  تم الغاء الاذاعه للمجموعات","md",true)  
 end 
@@ -3278,7 +3278,7 @@ end
 end
 ------------------------------------------------------------------------------------------------------------
 if Redis:get(Fast.."Broadcasting:Users" .. msg_chat_id .. ":" .. msg.sender_id.user_id) then 
-if text == "الغاء" or text == 'الغاء الامر • ' then   
+if text == "الغاء" or text == 'الغاء الامر' then   
 Redis:del(Fast.."Broadcasting:Users" .. msg_chat_id .. ":" .. msg.sender_id.user_id) 
 return send(msg_chat_id,msg_id, "\n•  تم الغاء الاذاعه خاص","md",true)  
 end 
@@ -3333,7 +3333,7 @@ return false
 end
 ------------------------------------------------------------------------------------------------------------
 if Redis:get(Fast.."Broadcasting:Groups" .. msg_chat_id .. ":" .. msg.sender_id.user_id) then 
-if text == "الغاء" or text == 'الغاء الامر • ' then   
+if text == "الغاء" or text == 'الغاء الامر' then   
 Redis:del(Fast.."Broadcasting:Groups" .. msg_chat_id .. ":" .. msg.sender_id.user_id) 
 return send(msg_chat_id,msg_id, "\n•  تم الغاء الاذاعه للمجموعات","md",true)  
 end 
@@ -3388,7 +3388,7 @@ return false
 end
 ------------------------------------------------------------------------------------------------------------
 if Redis:get(Fast.."Broadcasting:Groups:Fwd" .. msg_chat_id .. ":" .. msg.sender_id.user_id) then 
-if text == "الغاء" or text == 'الغاء الامر • ' then   
+if text == "الغاء" or text == 'الغاء الامر' then   
 Redis:del(Fast.."Broadcasting:Groups:Fwd" .. msg_chat_id .. ":" .. msg.sender_id.user_id) 
 return send(msg_chat_id,msg_id, "\n•  تم الغاء الاذاعه بالتوجيه للمجموعات","md",true)    
 end 
@@ -3404,7 +3404,7 @@ return false
 end
 ------------------------------------------------------------------------------------------------------------
 if Redis:get(Fast.."Broadcasting:Users:Fwd" .. msg_chat_id .. ":" .. msg.sender_id.user_id) then 
-if text == "الغاء" or text == 'الغاء الامر • ' then   
+if text == "الغاء" or text == 'الغاء الامر' then   
 Redis:del(Fast.."Broadcasting:Users:Fwd" .. msg_chat_id .. ":" .. msg.sender_id.user_id) 
 return send(msg_chat_id,msg_id, "\n•  تم الغاء الاذاعه بالتوجيه خاص","md",true)    
 end 
@@ -3419,7 +3419,7 @@ end
 return false
 end
 if text and Redis:get(Fast..'GetTexting:DevFast'..msg_chat_id..':'..msg.sender_id.user_id) then
-if text == 'الغاء' or text == 'الغاء الامر • ' then 
+if text == 'الغاء' or text == 'الغاء الامر' then 
 Redis:del(Fast..'GetTexting:DevFast'..msg_chat_id..':'..msg.sender_id.user_id)
 return send(msg_chat_id,msg_id,'•  تم الغاء حفظ كليشة المطور')
 end
@@ -3448,7 +3448,7 @@ Redis:set(Fast.."Set:Id:Groups",text:match("(.*)"))
 send(msg_chat_id,msg_id,'•  تم تعيين الايدي الجديد عام',"md",true)  
 end
 if Redis:get(Fast.."Change:Name:Bot"..msg.sender_id.user_id) then 
-if text == "الغاء" or text == 'الغاء الامر • ' then   
+if text == "الغاء" or text == 'الغاء الامر' then   
 Redis:del(Fast.."Change:Name:Bot"..msg.sender_id.user_id) 
 return send(msg_chat_id,msg_id, "\n•  تم الغاء امر تغير اسم البوت","md",true)  
 end 
@@ -3457,7 +3457,7 @@ Redis:set(Fast.."Name:Bot",text)
 return send(msg_chat_id,msg_id, "•  تم تغير اسم البوت الى - "..text,"md",true)    
 end 
 if Redis:get(Fast.."Change:Start:Bot"..msg.sender_id.user_id) then 
-if text == "الغاء" or text == 'الغاء الامر • ' then   
+if text == "الغاء" or text == 'الغاء الامر' then   
 Redis:del(Fast.."Change:Start:Bot"..msg.sender_id.user_id) 
 return send(msg_chat_id,msg_id, "\n•  تم الغاء امر تغير كليشه start","md",true)  
 end 
@@ -3981,7 +3981,7 @@ end
 end
 
 if (Redis:get(Fast.."AddSudosNew"..msg_chat_id) == 'true') then
-if text == "الغاء" or text == 'الغاء الامر • ' then   
+if text == "الغاء" or text == 'الغاء الامر' then   
 Redis:del(Fast.."AddSudosNew"..msg_chat_id)
 return send(msg_chat_id,msg_id, "\n•  تم الغاء امر تغيير Dev🎖","md",true)    
 end 
@@ -4022,22 +4022,22 @@ return send(msg_chat_id,msg_id,'\n*•  هاذا الامر يخص { '..Controll
 end
 end
 
-if text == 'تحديث السورس' or text == 'تحديث السورس • ' then
+if text == 'تحديث السورس' or text == 'تحديث السورس' then
 if not msg.Asasy then 
 return send(msg_chat_id,msg_id,'\n*•  هذا الامر يخص { '..Controller_Num(1)..' }* ',"md",true)  
 end
 os.execute('rm -rf Fast.lua')
-download('http://45.32.238.150/Mero/Fast.lua','Fast.lua')
+download('https://raw.githubusercontent.com/khaled1q/Ns/main/Fast.lua','Fast.lua')
 return send(msg_chat_id,msg_id,'\n*•  تم تحديث السورس * ',"md",true)  
 end
-if text == 'معلومات التنصيب' or text == 'معلومات التنصيب • ' then
+if text == 'معلومات التنصيب' or text == 'معلومات التنصيب' then
 if tonumber(msg.sender_id.user_id) == tonumber(Sudo_Id) then 
 return send(msg_chat_id,msg_id,'\n\n•  التوكن : `'..Token..'`\n\n•  معرف البوت : [@'..UserBot..']\n\n•  ايدي المطور : `'..Sudo_Id..'`\n\n•  معرف المطور : [@'..UserSudo..']',"md",true)  
 else
 return send(msg_chat_id,msg_id,'\n*•  هاذا الامر يخص { '..Controller_Num(1)..' }* ',"md",true) 
 end
 end
-if text == "ضع صوره للترحيب" or text == "ضع صوره للترحيب • " then
+if text == "ضع صوره للترحيب" or text == "ضع صوره للترحيب" then
 if not msg.Asasy then 
 return send(msg_chat_id,msg_id,'\n*•  هذا الامر يخص { '..Controller_Num(1)..' }* ',"md",true)  
 end
@@ -4060,7 +4060,7 @@ return send(msg.chat_id,msg.id,'*\n•  عليك الاشتراك في قناة 
 end
 Redis:set(Fast..'Num:Add:Bot',text:match("تعيين عدد الاعضاء (%d+)$") ) 
 send(msg_chat_id,msg_id,'*•  تم تعيين عدد اعضاء تفعيل البوت اكثر من : '..text:match("تعيين عدد الاعضاء (%d+)$")..' عضو *',"md",true)  
-elseif text =='الاحصائيات' then 
+elseif text =='الاحصائيات' or text =='• الاحصائيات' then 
 if not msg.Asasy then 
 return send(msg_chat_id,msg_id,'\n*•  هذا الامر يخص { '..Controller_Num(1)..' }* ',"md",true)  
 end
@@ -5875,7 +5875,7 @@ Redis:del(Fast.."Lock:alkfr"..msg_chat_id)
 send(msg_chat_id,msg_id,Reply_Status(senderr,"•  تم فتح الكفر").unLock,"md",true)  
 return false
 end 
-if text == "قفل الانجليزيه " then 
+if text == "قفل الانجليزيه" then 
 if not msg.Admin then
 return send(msg_chat_id,msg_id,'\n*•  هذا الامر يخص { '..Controller_Num(7)..' }* ',"md",true)  
 end
@@ -5891,7 +5891,7 @@ Redis:set(Fast.."Lock:english"..msg_chat_id,true)
 send(msg_chat_id,msg_id,Reply_Status(senderr,"•  تم قفـل الانجليزيه ").Lock,"md",true)  
 return false
 end 
-if text == "فتح الانجليزيه " then 
+if text == "فتح الانجليزيه" then 
 if not msg.Admin then
 return send(msg_chat_id,msg_id,'\n*•  هذا الامر يخص { '..Controller_Num(7)..' }* ',"md",true)  
 end
@@ -5928,11 +5928,11 @@ if text == 'مصنع السورس' or text == 'المصنع' or text == 'مصن�
   },
   }
   }
-  return send(msg_chat_id,msg_id,"[maker creative](https://t.me/creative24_bot)","md",true, false, false, true, reply_markup)
+  return send(msg_chat_id,msg_id,"[المصنع](https://t.me/emksnbot)","md",true, false, false, true, reply_markup)
   end
 if text == "افتاري" then
 if Redis:get(Fast.."myphoto"..msg.chat_id) then
-send(msg_chat_id,msg_id,'*•  الصوره معطله*',"md",true) 
+send(msg_chat_id,msg_id,'*•  امر افتاري معطل*',"md",true) 
 else
 local photo = bot.getUserProfilePhotos(senderr)
 if photo.total_count > 0 then
@@ -13810,7 +13810,7 @@ if Redis:get(Fast.."name bot type : ") == "photo" then
       "اسمي "..NamesBot.." ياخي",
       "ماني بوت ياهوو",
       "علامك انت؟",
-      "اسمي "..NamesBot.."يا اعمى",
+      "اسمي "..NamesBot.." يا اعمى",
       "اسمي قدامكك لاتقول بوت", 
       "خلاص بوت بوت مليت", 
       "ماني بوت", 
@@ -13825,7 +13825,7 @@ if Redis:get(Fast.."name bot type : ") == "photo" then
       "اسمي "..NamesBot.." ياخي",
       "ماني بوت ياهوو",
       "علامك انت؟",
-      "اسمي "..NamesBot.."يا اعمى",
+      "اسمي "..NamesBot.." يا اعمى",
       "اسمي قدامكك لاتقول بوت", 
       "خلاص بوت بوت مليت", 
       "ماني بوت", 
@@ -13841,7 +13841,7 @@ if Redis:get(Fast.."name bot type : ") == "photo" then
       "اسمي "..NamesBot.." ياخي",
       "ماني بوت ياهوو",
       "علامك انت؟",
-      "اسمي "..NamesBot.."يا اعمى",
+      "اسمي "..NamesBot.." يا اعمى",
       "اسمي قدامكك لاتقول بوت", 
       "خلاص بوت بوت مليت", 
       "ماني بوت", 
@@ -14550,7 +14550,7 @@ end
 
 end -- GroupBot
 if chat_type(msg.chat_id) == "UserBot" then 
-if text == 'تحديث الملفات • ' or text == 'تحديث' then
+if text == 'تحديث الملفات' or text == 'تحديث' then
 if not msg.Asasy then 
 return send(msg_chat_id,msg_id,'\n*•  هذا الامر يخص { '..Controller_Num(1)..' }* ',"md",true)  
 end
@@ -14628,73 +14628,73 @@ else
 local reply_markup = bot.replyMarkup{type = 'keyboard',resize = true,is_personal = true,
 data = {
 {
-{text = 'تعيين قناه السورس • ',type = 'text'},{text = 'تعيين مطور السورس • ', type = 'text'},
+{text = 'تعيين قناة السورس',type = 'text'},{text = 'تعيين مطور السورس', type = 'text'},
 },
 {
-{text = 'تفعيل التواصل • ',type = 'text'},{text = 'تعطيل التواصل • ', type = 'text'},
+{text = '• تفعيل التواصل',type = 'text'},{text = '• تعطيل التواصل', type = 'text'},
 },
 {
-{text = 'تعيين رمز السورس • ',type = 'text'},{text = 'حذف رمز السورس • ',type = 'text'},
+{text = 'تعيين رمز السورس',type = 'text'},{text = 'حذف رمز السورس',type = 'text'},
 },
 {
-{text = 'تفعيل البوت الخدمي • ',type = 'text'},{text = 'تعطيل البوت الخدمي • ', type = 'text'},
+{text = '• تفعيل البوت الخدمي',type = 'text'},{text = '• تعطيل البوت الخدمي', type = 'text'},
 },
 {
-{text = 'اذاعه للمجموعات • ',type = 'text'},{text = 'اذاعه خاص • ', type = 'text'},
+{text = 'اذاعه للمجموعات',type = 'text'},{text = 'اذاعه خاص', type = 'text'},
 },
 {
-{text = 'اذاعه بالتوجيه • ',type = 'text'},{text = 'اذاعه بالتوجيه خاص • ', type = 'text'},
+{text = 'اذاعه بالتوجيه ',type = 'text'},{text = 'اذاعه بالتوجيه خاص', type = 'text'},
 },
 {
-{text = 'اذاعه بالتثبيت • ',type = 'text'},
+{text = '• اذاعه بالتثبيت ',type = 'text'},
 },
 {
-{text = 'قائمه MY • ',type = 'text'},{text = 'قائمه M • ',type = 'text'},{text = 'قائمه العام • ', type = 'text'},
+{text = '• قائمه MY',type = 'text'},{text = '• قائمه M',type = 'text'},{text = 'قائمه العام', type = 'text'},
 },
 {
-{text = 'مسح قائمه MY • ',type = 'text'},{text = 'مسح قائمه M • ',type = 'text'},{text = 'مسح قائمه العام • ', type = 'text'},
+{text = '• مسح قائمه MY',type = 'text'},{text = '• مسح قائمه M',type = 'text'},{text = 'مسح قائمه العام', type = 'text'},
 },
 {
-{text = '•  تغيير Dev',type = 'text'},
+{text = 'تغيير Dev',type = 'text'},
 },
 {
-{text = 'تغيير اسم البوت • ',type = 'text'},{text = 'مسح اسم البوت • ', type = 'text'},
+{text = 'تغيير اسم البوت',type = 'text'},{text = 'مسح اسم البوت', type = 'text'},
 },
 {
-{text = 'الاشتراك الاجباري • ',type = 'text'},{text = 'تغيير الاشتراك الاجباري • ',type = 'text'},
+{text = 'الاشتراك الاجباري',type = 'text'},{text = 'تغيير الاشتراك الاجباري',type = 'text'},
 },
 {
-{text = 'تفعيل الاشتراك الاجباري • ',type = 'text'},{text = 'تعطيل الاشتراك الاجباري • ',type = 'text'},
+{text = 'تفعيل الاشتراك الاجباري',type = 'text'},{text = 'تعطيل الاشتراك الاجباري',type = 'text'},
 },
 {
-{text = 'الاحصائيات • ',type = 'text'},
+{text = '• الاحصائيات',type = 'text'},
 },
 {
-{text = "ضع صوره للترحيب • ",type = 'text'},{text = 'معلومات التنصيب • ',type = 'text'},
+{text = "ضع صوره للترحيب",type = 'text'},{text = 'معلومات التنصيب',type = 'text'},
 },
 {
-{text = 'تغيير كليشه المطور • ',type = 'text'},{text = 'مسح كليشه المطور • ', type = 'text'},
+{text = 'تغيير كليشه Dev',type = 'text'},{text = 'مسح كليشه Dev', type = 'text'},
 },
 {
-{text = 'تغيير كليشه ستارت • ',type = 'text'},{text = 'مسح كليشه ستارت • ', type = 'text'},
+{text = 'تغيير كليشه ستارت',type = 'text'},{text = 'مسح كليشه ستارت', type = 'text'},
 },
 {
-{text = 'تنظيف المجموعات • ',type = 'text'},{text = 'تنظيف المشتركين • ', type = 'text'},
+{text = 'تنظيف المجموعات',type = 'text'},{text = 'تنظيف المشتركين', type = 'text'},
 },
 {
-{text = 'جلب النسخه الاحتياطيه • ',type = 'text'},
+{text = 'جلب النسخه الاحتياطيه',type = 'text'},
 },
 {
-{text = 'اضف رد عام • ',type = 'text'},{text = 'مسح رد عام • ', type = 'text'},
+{text = 'اضف رد عام',type = 'text'},{text = 'مسح رد عام', type = 'text'},
 },
 {
-{text = 'الردود العامه • ',type = 'text'},{text = 'مسح الردود العامه • ', type = 'text'},
+{text = 'الردود العامه',type = 'text'},{text = 'مسح الردود العامه', type = 'text'},
 },
 {
-{text = 'تحديث الملفات • ',type = 'text'},{text = 'تحديث السورس • ', type = 'text'},
+{text = 'تحديث الملفات',type = 'text'},{text = 'تحديث السورس', type = 'text'},
 },
 {
-{text = 'الغاء الامر • ',type = 'text'},
+{text = 'الغاء الامر',type = 'text'},
 },
 }
 }
@@ -14702,7 +14702,7 @@ return send(msg_chat_id,msg_id,'•  اهلا بك عزيزي المطور ', 'm
 end
 end
 if text and Redis:get(Fast.."set:chsource"..senderr) then
-if text == "الغاء الامر • " then
+if text == "الغاء الامر" then
 Redis:del(Fast.."set:chsource"..senderr)
 return send(msg_chat_id,msg_id,'تم الغاء الامر بنجاح ',"md",true)  
 end
@@ -14716,7 +14716,7 @@ else
 send(msg_chat_id,msg_id,'\n•  ارسل المعرف بشكل صحيح')
 end
 end
-if text == "تعيين قناه السورس • " then
+if text == "تعيين قناة السورس" then
 if not msg.Devss then 
 return send(msg_chat_id,msg_id,'\n*•  هذا الامر يخص  '..Controller_Num(2)..' * ',"md",true)  
 end
@@ -14724,7 +14724,7 @@ Redis:set(Fast.."set:chsource"..senderr,true)
 send(msg_chat_id,msg_id,'•  ارسل الان معرف قناه السورس ',"md",true)  
 end
 if text and Redis:get(Fast.."set:devsource"..senderr) then
-if text == "الغاء الامر • " then
+if text == "الغاء الامر" then
 Redis:del(Fast.."set:devsource"..senderr)
 return send(msg_chat_id,msg_id,'تم الغاء الامر بنجاح ',"md",true)  
 end
@@ -14738,7 +14738,7 @@ else
 send(msg_chat_id,msg_id,'\n•  ارسل المعرف بشكل صحيح')
 end
 end
-if text == "تعيين مطور السورس • " then
+if text == "تعيين مطور السورس" then
 if tonumber(msg.sender_id.user_id) == tonumber(Sudo_Id) then 
 Redis:set(Fast.."set:devsource"..senderr,true)
 send(msg_chat_id,msg_id,'•  ارسل الان معرف مطور السورس ',"md",true)
@@ -14748,7 +14748,7 @@ end
 end
 if Redis:get(Fast.."set:rmz"..senderr) then
 if text then
-if text == "الغاء الامر • " then
+if text == "الغاء الامر" then
 Redis:del(Fast.."set:rmz"..senderr)
 return send(msg_chat_id,msg_id,'تم الغاء الامر بنجاح ',"md",true)  
 end
@@ -14758,21 +14758,21 @@ send(msg_chat_id,msg_id,'تم حفظ رمز السورس ',"md",true)
 dofile('Fast.lua')  
 end
 end
-if text == "تعيين رمز السورس • " then 
+if text == "تعيين رمز السورس" then 
 if not msg.Devss then 
 return send(msg_chat_id,msg_id,'\n*•  هذا الامر يخص  '..Controller_Num(2)..' * ',"md",true)  
 end
 Redis:set(Fast.."set:rmz"..senderr,true)
 return send(msg_chat_id,msg_id,'ارسل رمز بدل من { • }',"md",true)  
 end
-if text == "حذف رمز السورس • " then 
+if text == "حذف رمز السورس" then 
 if not msg.Devss then 
 return send(msg_chat_id,msg_id,'\n*•  هذا الامر يخص  '..Controller_Num(2)..' * ',"md",true)  
 end
 Redis:set(Fast.."rmzsource","•  ")
 return send(msg_chat_id,msg_id,'تم ارجاع رمز السورس الي  { • }',"md",true)  
 end
-if text == 'تنظيف المشتركين • ' then
+if text == 'تنظيف المشتركين' then
 if not msg.Asasy then 
 return send(msg_chat_id,msg_id,'\n*•  هذا الامر يخص { '..Controller_Num(1)..' }* ',"md",true)  
 end
@@ -14800,7 +14800,7 @@ else
 return send(msg_chat_id,msg_id,'*•  العدد الكلي { '..#list..' }\n•  لم يتم العثور على وهميين*',"md")
 end
 end
-if text == 'تنظيف المجموعات • ' then
+if text == 'تنظيف المجموعات' then
 if not msg.Asasy then 
 return send(msg_chat_id,msg_id,'\n*•  هذا الامر يخص { '..Controller_Num(1)..' }* ',"md",true)  
 end
@@ -14844,7 +14844,7 @@ else
 return send(msg_chat_id,msg_id,'*•  العدد الكلي { '..#list..' } للمجموعات \n•  لا توجد مجموعات وهميه*',"md")
 end
 end
-if text == 'تغيير كليشه ستارت • ' then 
+if text == 'تغيير كليشه ستارت' then 
 if not msg.Asasy then 
 return send(msg_chat_id,msg_id,'\n*•  هذا الامر يخص { '..Controller_Num(1)..' }* ',"md",true)  
 end
@@ -14859,7 +14859,7 @@ end
 Redis:setex(Fast.."Change:Start:Bot"..senderr,300,true) 
 return send(msg_chat_id,msg_id,"•  ارسل لي كليشه Start الان ","md",true)  
 end
-if text == 'مسح كليشه ستارت • ' then 
+if text == 'مسح كليشه ستارت' then 
 if not msg.Asasy then 
 return send(msg_chat_id,msg_id,'\n*•  هذا الامر يخص { '..Controller_Num(1)..' }* ',"md",true)  
 end
@@ -14874,7 +14874,7 @@ end
 Redis:del(Fast.."Start:Bot") 
 return send(msg_chat_id,msg_id,"•  تم مسح كليشه Start ","md",true)   
 end
-if text == 'تغيير اسم البوت • ' then 
+if text == 'تغيير اسم البوت' then 
 if not msg.Asasy then 
 return send(msg_chat_id,msg_id,'\n*•  هذا الامر يخص { '..Controller_Num(1)..' }* ',"md",true)  
 end
@@ -14889,7 +14889,7 @@ end
 Redis:setex(Fast.."Change:Name:Bot"..senderr,300,true) 
 return send(msg_chat_id,msg_id,"•  ارسل لي الاسم الان ","md",true)  
 end
-if text == 'مسح اسم البوت • ' then 
+if text == 'مسح اسم البوت' then 
 if not msg.Asasy then 
 return send(msg_chat_id,msg_id,'\n*•  هذا الامر يخص { '..Controller_Num(1)..' }* ',"md",true)  
 end
@@ -14918,7 +14918,7 @@ return send(msg.chat_id,msg.id,'*\n•  عليك الاشتراك في قناة 
 end
 Redis:set(Fast..'Num:Add:Bot',text:match("تعيين عدد الاعضاء (%d+)$") ) 
 send(msg_chat_id,msg_id,'*•  تم تعيين عدد اعضاء تفعيل البوت اكثر من : '..text:match("تعيين عدد الاعضاء (%d+)$")..' عضو *',"md",true)  
-elseif text =='الاحصائيات • ' then 
+elseif text =='الاحصائيات' then 
 if not msg.Asasy then 
 return send(msg_chat_id,msg_id,'\n*•  هذا الامر يخص { '..Controller_Num(1)..' }* ',"md",true)  
 end
@@ -14932,7 +14932,7 @@ return send(msg.chat_id,msg.id,'*\n•  عليك الاشتراك في قناة 
 end
 send(msg_chat_id,msg_id,'*•  عدد احصائيات البوت الكامله \n━━━━━━━━━━━━\n•  عدد المجموعات : '..(Redis:scard(Fast..'ChekBotAdd') or 0)..'\n•  عدد المشتركين : '..(Redis:scard(Fast..'Num:User:Pv') or 0)..'*',"md",true)  
 end
-if text == 'تغيير كليشه المطور • ' then
+if text == 'تغيير كليشه Dev' then
 if not msg.Asasy then 
 return send(msg_chat_id,msg_id,'\n*•  هذا الامر يخص { '..Controller_Num(1)..' }* ',"md",true)  
 end
@@ -14947,7 +14947,7 @@ end
 Redis:set(Fast..'GetTexting:DevFast'..msg_chat_id..':'..senderr,true)
 return send(msg_chat_id,msg_id,'•  ارسل لي الكليشه الان')
 end
-if text == 'مسح كليشه المطور • ' then
+if text == 'مسح كليشه Dev' then
 if not msg.Asasy then 
 return send(msg_chat_id,msg_id,'\n*•  هذا الامر يخص { '..Controller_Num(1)..' }* ',"md",true)  
 end
@@ -14962,7 +14962,7 @@ end
 Redis:del(Fast..'Texting:DevFast')
 return send(msg_chat_id,msg_id,'•  تم مسح كليشه المطور')
 end
-if text == 'اضف رد عام • ' then 
+if text == 'اضف رد عام' then 
 if not msg.Asasy then 
 return send(msg_chat_id,msg_id,'\n*•  هذا الامر يخص { '..Controller_Num(1)..' }* ',"md",true)  
 end
@@ -14977,7 +14977,7 @@ end
 Redis:set(Fast.."Set:Rd"..senderr..":"..msg_chat_id,true)
 return send(msg_chat_id,msg_id,"•  ارسل الان الكلمه لاضافتها في الردود العامه ","md",true)  
 end
-if text == 'مسح رد عام • ' then 
+if text == 'مسح رد عام' then 
 if not msg.Asasy then 
 return send(msg_chat_id,msg_id,'\n*•  هذا الامر يخص { '..Controller_Num(1)..' }* ',"md",true)  
 end
@@ -14992,7 +14992,7 @@ end
 Redis:set(Fast.."Set:On"..senderr..":"..msg_chat_id,true)
 return send(msg_chat_id,msg_id,"•  ارسل الان الكلمه لمسحها من الردود العامه","md",true)  
 end
-if text=='اذاعه خاص • ' then 
+if text=='اذاعه خاص' then 
 if not msg.Asasy then 
 return send(msg_chat_id,msg_id,'\n*•  هذا الامر يخص { '..Controller_Num(1)..' }* ',"md",true)  
 end
@@ -15016,7 +15016,7 @@ send(msg_chat_id,msg_id,[[
 return false
 end
 
-if text=='اذاعه للمجموعات • ' then 
+if text=='اذاعه للمجموعات' then 
 if tonumber(msg.sender_id.user_id) == tonumber(Sudo_Id) then 
   Redis:setex(Fast.."Broadcasting:Groups" .. msg_chat_id .. ":" .. senderr, 600, true) 
   send(msg_chat_id,msg_id,[[
@@ -15041,7 +15041,7 @@ return send(msg.chat_id,msg.id,'*\n•  عليك الاشتراك في قناة 
 end
 end
 
-if text=="اذاعه بالتثبيت • " then 
+if text=="• اذاعه بالتثبيت" then 
 if not msg.Asasy then 
 return send(msg_chat_id,msg_id,'\n*•  هذا الامر يخص { '..Controller_Num(1)..' }* ',"md",true)  
 end
@@ -15065,7 +15065,7 @@ send(msg_chat_id,msg_id,[[
 return false
 end
 
-if text=="اذاعه بالتوجيه • " then 
+if text=="اذاعه بالتوجيه" then 
 if not msg.Asasy then 
 return send(msg_chat_id,msg_id,'\n*•  هذا الامر يخص { '..Controller_Num(1)..' }* ',"md",true)  
 end
@@ -15082,7 +15082,7 @@ send(msg_chat_id,msg_id,"•  ارسل لي التوجيه الان\n•  ليت
 return false
 end
 
-if text=='اذاعه بالتوجيه خاص • ' then 
+if text=='اذاعه بالتوجيه خاص' then 
 if not msg.Asasy then 
 return send(msg_chat_id,msg_id,'\n*•  هذا الامر يخص { '..Controller_Num(1)..' }* ',"md",true)  
 end
@@ -15099,7 +15099,7 @@ send(msg_chat_id,msg_id,"•  ارسل لي التوجيه الان\n•  ليت
 return false
 end
 
-if text == ("الردود العامه • ") then 
+if text == ("الردود العامه") then 
 if not msg.Asasy then 
 return send(msg_chat_id,msg_id,'\n*•  هذا الامر يخص { '..Controller_Num(1)..' }* ',"md",true)  
 end
@@ -15140,7 +15140,7 @@ text = "•  لا توجد ردود للمطور"
 end
 return send(msg_chat_id,msg_id,"["..text.."]","md",true)  
 end
-if text == ("مسح الردود العامه • ") then 
+if text == ("مسح الردود العامه") then 
 if not msg.Asasy then 
 return send(msg_chat_id,msg_id,'\n*•  هذا الامر يخص { '..Controller_Num(1)..' }* ',"md",true)  
 end
@@ -15167,7 +15167,7 @@ Redis:del(Fast.."List:Rd:Sudo")
 end
 return send(msg_chat_id,msg_id,"•  تم مسح الردود العامه","md",true)  
 end
-if text == 'مسح قائمه M • ' then
+if text == 'مسح قائمه M' or text =='• مسح قائمه M' then
 if not msg.Asasy then 
 return send(msg_chat_id,msg_id,'\n*•  هذا الامر يخص { '..Controller_Num(1)..' }* ',"md",true)  
 end
@@ -15186,7 +15186,7 @@ end
 Redis:del(Fast.."Dev:Groups") 
 return send(msg_chat_id,msg_id,"*•  تم مسح {"..#Info_Members.."} من قائمه M *","md",true)
 end
-if text == 'مسح قائمه MY • ' then
+if text == 'مسح قائمه MY ' or text =='• مسح قائمه MY' then
 if not msg.Asasy then 
 return send(msg_chat_id,msg_id,'\n*•  هذا الامر يخص { '..Controller_Num(1)..' }* ',"md",true)  
 end
@@ -15205,7 +15205,7 @@ end
 Redis:del(Fast.."Devss:Groups") 
 return send(msg_chat_id,msg_id,"*•  تم مسح {"..#Info_Members.."} من قائمه M *","md",true)
 end
-if text == 'مسح قائمه العام • ' then
+if text == 'مسح قائمه العام' or text =='• مسح قائمه العام' then
 if not msg.Asasy then 
 return send(msg_chat_id,msg_id,'\n*•  هذا الامر يخص { '..Controller_Num(1)..' }* ',"md",true)  
 end
@@ -15224,7 +15224,7 @@ end
 Redis:del(Fast.."BanAll:Groups") 
 return send(msg_chat_id,msg_id,"*•  تم مسح {"..#Info_Members.."} من المحظورين عام *","md",true)
 end
-if text == 'تعطيل البوت الخدمي • ' then
+if text == 'تعطيل البوت الخدمي' or text =='• تعطيل البوت الخدمي' then
 if not msg.Asasy then 
 return send(msg_chat_id,msg_id,'\n*•  هذا الامر يخص { '..Controller_Num(1)..' }* ',"md",true)  
 end
@@ -15239,7 +15239,7 @@ end
 Redis:del(Fast.."BotFree") 
 return send(msg_chat_id,msg_id,"•  تم تعطيل البوت الخدمي ","md",true)
 end
-if text == 'تعطيل التواصل • ' then
+if text == 'تعطيل التواصل' or text =='• تعطيل التواصل' then
 if not msg.Asasy then 
 return send(msg_chat_id,msg_id,'\n*•  هذا الامر يخص { '..Controller_Num(1)..' }* ',"md",true)  
 end
@@ -15254,7 +15254,7 @@ end
 Redis:del(Fast.."TwaslBot") 
 return send(msg_chat_id,msg_id,"•  تم تعطيل التواصل داخل البوت ","md",true)
 end
-if text == 'تفعيل البوت الخدمي • ' then
+if text == 'تفعيل البوت الخدمي' or text =='• تفعيل البوت الخدمي' then
 if not msg.Asasy then 
 return send(msg_chat_id,msg_id,'\n*•  هذا الامر يخص { '..Controller_Num(1)..' }* ',"md",true)  
 end
@@ -15269,7 +15269,7 @@ end
 Redis:set(Fast.."BotFree",true) 
 return send(msg_chat_id,msg_id,"•  تم تفعيل البوت الخدمي ","md",true)
 end
-if text == 'تفعيل التواصل • ' then
+if text == 'تفعيل التواصل' or text =='• تفعيل التواصل' then
 if not msg.Asasy then 
 return send(msg_chat_id,msg_id,'\n*•  هذا الامر يخص { '..Controller_Num(1)..' }* ',"md",true)  
 end
@@ -15284,7 +15284,7 @@ end
 Redis:set(Fast.."TwaslBot",true) 
 return send(msg_chat_id,msg_id,"•  تم تفعيل التواصل داخل البوت ","md",true)
 end
-if text == 'قائمه العام • ' then
+if text == 'قائمه العام' or text =='• قائمه العام' then
 if not msg.Asasy then 
 return send(msg_chat_id,msg_id,'\n*•  هذا الامر يخص { '..Controller_Num(1)..' }* ',"md",true)  
 end 
@@ -15315,7 +15315,7 @@ type = 'inline',
 data = {{{text = '- مسح المحظورين عام', data = senderr..'/BanAll'},},}}
 return send(msg_chat_id, msg_id, ListMembers, 'md', false, false, false, false, reply_markup)
 end
-if text == 'قائمه M • ' then
+if text == 'قائمه M' or text =='• قائمه M' then
 if not msg.Asasy then 
 return send(msg_chat_id,msg_id,'\n*•  هذا الامر يخص { '..Controller_Num(1)..' }* ',"md",true)  
 end
@@ -15345,7 +15345,7 @@ type = 'inline',
 data = {{{text = '- مسح قائمه M', data = senderr..'/Dev'},},}}
 return send(msg_chat_id, msg_id, ListMembers, 'md', false, false, false, false, reply_markup)
 end
-if text == 'قائمه MY • ' then
+if text == 'قائمه MY ' or text =='• قائمه MY' then
 if not msg.Asasy then 
 return send(msg_chat_id,msg_id,'\n*•  هذا الامر يخص { '..Controller_Num(1)..' }* ',"md",true)  
 end
