@@ -13811,11 +13811,11 @@ if Redis:get(Fast.."name bot type : ") == "photo" then
       "ماني بوت ياهوو",
       "علامك انت؟",
       "اسمي "..NamesBot.."يا اعمى",
-      "اسمي قدامكك لاتقول بوت"
-      "خلاص بوت بوت مليت"
-      "ماني بوت"
-      "قل اسمي او اذلف"
-      "ياقلبي اسمي قدامك"
+      "اسمي قدامكك لاتقول بوت", 
+      "خلاص بوت بوت مليت", 
+      "ماني بوت", 
+      "قل اسمي او اذلف", 
+      "ياقلبي اسمي قدامك", 
       "لاحول"
       }
     return bot.sendPhoto(msg.chat_id, msg.id, photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id,BotName[math.random(#BotName)], "md", true, nil, nil, nil, nil, nil, nil, nil, nil, reply_markup )
@@ -13826,11 +13826,11 @@ if Redis:get(Fast.."name bot type : ") == "photo" then
       "ماني بوت ياهوو",
       "علامك انت؟",
       "اسمي "..NamesBot.."يا اعمى",
-      "اسمي قدامكك لاتقول بوت"
-      "خلاص بوت بوت مليت"
-      "ماني بوت"
-      "قل اسمي او اذلف"
-      "ياقلبي اسمي قدامك"
+      "اسمي قدامكك لاتقول بوت", 
+      "خلاص بوت بوت مليت", 
+      "ماني بوت", 
+      "قل اسمي او اذلف", 
+      "ياقلبي اسمي قدامك", 
       "لاحول"
       }
     return send(msg_chat_id,msg_id,BotName[math.random(#BotName)],"md") 
@@ -13842,11 +13842,11 @@ if Redis:get(Fast.."name bot type : ") == "photo" then
       "ماني بوت ياهوو",
       "علامك انت؟",
       "اسمي "..NamesBot.."يا اعمى",
-      "اسمي قدامكك لاتقول بوت"
-      "خلاص بوت بوت مليت"
-      "ماني بوت"
-      "قل اسمي او اذلف"
-      "ياقلبي اسمي قدامك"
+      "اسمي قدامكك لاتقول بوت", 
+      "خلاص بوت بوت مليت", 
+      "ماني بوت", 
+      "قل اسمي او اذلف", 
+      "ياقلبي اسمي قدامك", 
       "لاحول"
       }
     return send(msg_chat_id,msg_id,BotName[math.random(#BotName)],"md") 
