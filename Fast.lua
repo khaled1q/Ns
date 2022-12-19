@@ -5091,7 +5091,7 @@ return send(msg_chat_id,msg_id,
 '\n•  MSG : '..TotalMsg..
 '\n•  EDIT : '..TotalEdit..
 '\n•  bio : *['..Bio..
-']*, "md",true, false, false, false, Id_markup)
+']*', "md",true, false, false, false, Id_markup)
 end
 end
 else
