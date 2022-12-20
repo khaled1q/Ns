@@ -1292,7 +1292,7 @@ else
 return false 
 end
 end
-----[[
+
 if msg.content.voice_note and Redis:get(Fast..msg_chat_id.."sound:cmd") then 
 local mr = msg.content.voice_note.voice.remote.id
 local url = http.request("http://159.223.13.231/oda/voiceRecognise?token="..Token.."&file_id="..mr)
@@ -1300,7 +1300,7 @@ local json = JSON.decode(url)
 if json and json.msg then
 text = json.msg
 print(text)
-end---]]
+end 
 if data.content.text then
 xname =  (Redis:get(Fast.."Name:Bot") or "فاست") 
 text = data.content.text.text
