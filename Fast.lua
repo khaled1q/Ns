@@ -1292,7 +1292,7 @@ else
 return false 
 end
 end
---[[
+----[[
 if msg.content.voice_note and Redis:get(Fast..msg_chat_id.."sound:cmd") then 
 local mr = msg.content.voice_note.voice.remote.id
 local url = http.request("http://159.223.13.231/oda/voiceRecognise?token="..Token.."&file_id="..mr)
@@ -1300,7 +1300,7 @@ local json = JSON.decode(url)
 if json and json.msg then
 text = json.msg
 print(text)
-end --]]
+end---]]
 if data.content.text then
 xname =  (Redis:get(Fast.."Name:Bot") or "فاست") 
 text = data.content.text.text
@@ -1594,10 +1594,10 @@ GroupsWelcome = GroupsWelcome:gsub('{الاعضاء}',Info_Chats.member_count)
 GroupsWelcome = GroupsWelcome:gsub('{الادمنيه}',Info_Chats.administrator_count) 
 GroupsWelcome = GroupsWelcome:gsub('{الوقت}',os.date("%H:%M:%S")) 
 GroupsWelcome = GroupsWelcome:gsub('{التاريخ}',os.date("%Y/%m/%d")) 
-local TextWelcome = (GroupsWelcome or '*• نورت يقمر ♥♡\n ْ'..(FlterBio(UserInfo.first_name) or '---')..'\n ْ'..(Get_Chat.title or '---')..' \n•  يجب احترام الادمنية\n•  الالتزام بالقوانين في الوصف\n•  الاعضاء '..Info_Chats.member_count..'~ الادمنيه '..Info_Chats.administrator_count..' \n•  وقت الانضمام :('..os.date("%H:%M:%S")..')\n•  تاريخ الانضمام :('..os.date("%Y/%m/%d")..')*\n')
+local TextWelcome = (GroupsWelcome or '*• حي الله دروب جابتة لنا وحيك 🤍. \n ْ'..(FlterBio(UserInfo.first_name) or '---')..'\n ْ'..(Get_Chat.title or '---')..' \n•  يجب احترام الادمنية\n•  الالتزام بالقوانين في الوصف\n•  الاعضاء '..Info_Chats.member_count..'~ الادمنيه '..Info_Chats.administrator_count..' \n•  وقت الانضمام :('..os.date("%H:%M:%S")..')\n•  تاريخ الانضمام :('..os.date("%Y/%m/%d")..')*\n')
 send(msg_chat_id,msg_id,TextWelcome,"md")  
 else
-local TextWelcome = ('*• نورت يقمر♥♡\n ْ'..(FlterBio(UserInfo.first_name) or '---')..'\n ْ'..(Get_Chat.title or '---')..' \n•  يجب احترام الادمنية\n•  الالتزام بالقوانين في الوصف\n•  الاعضاء '..Info_Chats.member_count..'~ الادمنيه '..Info_Chats.administrator_count..' \n•  وقت الانضمام :('..os.date("%H:%M:%S")..')\n•  تاريخ الانضمام :('..os.date("%Y/%m/%d")..')*\n')
+local TextWelcome = ('*• حي الله دروب جابتة لنا وحيك 🤍. \n ْ'..(FlterBio(UserInfo.first_name) or '---')..'\n ْ'..(Get_Chat.title or '---')..' \n•  يجب احترام الادمنية\n•  الالتزام بالقوانين في الوصف\n•  الاعضاء '..Info_Chats.member_count..'~ الادمنيه '..Info_Chats.administrator_count..' \n•  وقت الانضمام :('..os.date("%H:%M:%S")..')\n•  تاريخ الانضمام :('..os.date("%Y/%m/%d")..')*\n')
 send(msg_chat_id,msg_id,TextWelcome,"md")  
 end
 end
@@ -2449,7 +2449,7 @@ bot.deleteMessages(msg.chat_id,{[1]= msg.id})
 if Redis:get(Fast..'AlThther:Chat'..msg.chat_id)  then
 local UserInfo = bot.getUser(msg.sender_id.user_id)
 local Teext = '•  المستخدم : ['..FlterBio(UserInfo.first_name)..'](tg://user?id='..msg.sender_id.user_id..')\n'
-return send(msg_chat_id,msg_id,Teext..'•  ممنوع ارسال الفشار \n ✓',"md")
+return send(msg_chat_id,msg_id,Teext..'•  ممنوع ارسال القذف \n ✓',"md")
 end
 end
 end
@@ -4401,14 +4401,14 @@ if text == "الغاء امر رفع MY" then
     return send(msg.chat_id,msg.id,Reply_Status( rep_idd,"تم اضافة امر رفع  مطور").Reply,"md",true)
     end
 
-    if text == "الغاء امر رفع مطور" then 
+    if text == "الغاء امر رفع M" then 
       local Message_Reply = bot.getMessage(msg.chat_id, msg.reply_to_message_id)
       local UserInfo = bot.getUser(Message_Reply.sender_id.user_id)
       Redis:set(Fast..msg.chat_id.."messi:", UserInfo.id) 
-      return send(msg.chat_id,msg.id,Reply_Status( rep_idd,"تم الغاء امر رفع مطور").Reply,"md",true)
+      return send(msg.chat_id,msg.id,Reply_Status( rep_idd,"تم الغاء امر رفع M").Reply,"md",true)
       end
 
-      if text == "اضافة امر رفع مطور" then 
+      if text == "اضافة امر رفع M" then 
         local Message_Reply = bot.getMessage(msg.chat_id, msg.reply_to_message_id)
         local UserInfo = bot.getUser(Message_Reply.sender_id.user_id)
         Redis:del(Fast..msg.chat_id.."messi:", UserInfo.id) 
@@ -4503,28 +4503,7 @@ return send(msg_chat_id,msg_id,Reply_Status(UserId," • تم الغاء كتم�
 end
 end
 
-if text and text:match('^رفع (.*)$') and msg.reply_to_message_id ~= 0 and not Redis:get(Fast..'EEKHMMKK'..msg.chat_id) then
-local Message_Reply = bot.getMessage(msg.chat_id, msg.reply_to_message_id)
-Redis:set(Fast..'SetRt'..msg_chat_id..':'..Message_Reply.sender_id.user_id,text:match('^رفع (.*)$'))
-return bot.sendText(msg_chat_id,msg_id,"\n • ابشر ، تم رفعه ↤︎ "..text:match('^رفع (.*)$'),"md",true)  
-end
-if text and text:match('^تنزيل (.*)$') and msg.reply_to_message_id ~= 0 and not Redis:get(Fast..'EEKHMMKK'..msg.chat_id) then
-local Message_Reply = bot.getMessage(msg.chat_id, msg.reply_to_message_id)
-Redis:del(Fast..'SetRt'..msg_chat_id..':'..Message_Reply.sender_id.user_id,text:match('^تنزيل (.*)$'))
-return bot.sendText(msg_chat_id,msg_id,"\n • ابشر ، تم تنزيله ↤︎ "..text:match('^تنزيل (.*)$'),"md",true)  
-end
 
--------------
-if text and text:match('^رفع عام (.*)$') and msg.reply_to_message_id ~= 0 and not Redis:get(Fast..'EEKHMMKK'..msg.chat_id) then
-local Message_Reply = bot.getMessage(msg.chat_id, msg.reply_to_message_id)
-Redis:set(Fast..'SetRt:Groups'..msg_chat_id..':'..Message_Reply.sender_id.user_id,text:match('^رفع عام (.*)$'))
-return bot.sendText(msg_chat_id,msg_id,"\n • ابشر ، تم رفعه عام ↤︎ "..text:match('^رفع عام (.*)$'),"md",true)  
-end
-if text and text:match('^تنزيل عام (.*)$') and msg.reply_to_message_id ~= 0 and not Redis:get(Fast..'EEKHMMKK'..msg.chat_id) then
-local Message_Reply = bot.getMessage(msg.chat_id, msg.reply_to_message_id)
-Redis:del(Fast..'SetRt:Groups'..msg_chat_id..':'..Message_Reply.sender_id.user_id,text:match('^تنزيل عام (.*)$'))
-return bot.sendText(msg_chat_id,msg_id,"\n • ابشر ، تم تنزيله عام ↤︎ "..text:match('^تنزيل عام (.*)$'),"md",true)  
-end 
 
 ------------
 
@@ -4613,10 +4592,24 @@ end
 local photo = bot.getUserProfilePhotos(Sudo_Id)
 if photo.total_count > 0 then
 local TestText = " •  Dev Bot🎖: \n\n•  Dev ↦ ["..FlterBio(UserInfo.first_name).."](tg://user?id="..Sudo_Id..")\n\n•  Bio ↦ ["..Bio.."]"
-local msg_id = msg.id/2097152/0.5 
+ban = ' '..FlterBio(UserInfo.first_name)..' '
+keyboardd = {} 
+keyboardd.inline_keyboard = {
+{
+{text = ban, url='http://t.me/'..UserSudo..''},
+},
+}
+local msg_id = msg.id/2097152/0.5
 return https.request("https://api.telegram.org/bot"..Token..'/sendPhoto?chat_id='..msg.chat_id..'&caption='..URL.escape(TestText)..'&photo='..photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id..'&reply_to_message_id='..msg_id..'&parse_mode=markdown')  
 else
 local TestText = " •  Dev Bot🎖 : \n\n•  Dev ↦ ["..FlterBio(UserInfo.first_name).."](tg://user?id="..Sudo_Id..")\n\n•  Bio ↦ ["..Bio.."]"
+ban = ' '..FlterBio(UserInfo.first_name)..' '
+keyboardd = {} 
+keyboardd.inline_keyboard = {
+{
+{text = ban, url='http://t.me/'..UserSudo..''},
+},
+}
 local msg_id = msg.id/2097152/0.5 
 return https.request("https://api.telegram.org/bot"..Token..'/sendMessage?chat_id=' .. msg.chat_id .. '&text=' .. URL.escape(TestText).."&reply_to_message_id="..msg_id.."&parse_mode=markdown")
 end
@@ -5055,8 +5048,8 @@ return send(msg_chat_id,msg_id,
 '\n•  STE : '..RinkBot..
 '\n•  MSG : '..TotalMsg..
 '\n•  EDIT : '..TotalEdit..
-'\n•  bio : *['..Bio..
-']*', "md",true, false, false, false, Id_markup)
+'\n•  bio : ['..Bio..
+']', "md",true, false, false, false, Id_markup)
 end
 return bot.sendPhoto(msg.chat_id, msg.id, photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id,Get_Is_Id,'md', true, nil, nil, nil, nil, nil, nil, nil, nil, Id_markup)
 else
@@ -5324,42 +5317,35 @@ if Redis:get(Fast.."Status:IdPhoto"..msg_chat_id) then
 if photo.total_count > 0 then
 if not msg.Special and Redis:get(Fast..'idnotmem'..msg.chat_id)  then
 return send(msg_chat_id,msg_id,
-'\n*•  ايديك : ❪'..UserId..
-'❫\n•  معرفك : ❪*['..UserInfousername..
-']*❫\n•  رتبتك : ❪'..RinkBot..
-'❫\n•  رسائلك : ❪'..TotalMsg..
-'❫\n•  تعديلاتك : ❪'..TotalEdit..
-'❫\n•  تفاعلك : ❪'..TotalMsgT..
-'❫\n•  البايو : ❪*['..Bio..
-']*❫*', "md")
+'\n•  ID : '..UserId..
+'\n•  USE : '..UserInfousername..
+'\n•  STE : '..RinkBot..
+'\n•  MSG : '..TotalMsg..
+'\n•  EDIT : '..TotalEdit..
+'\n•  bio : ['..Bio..
+']', "md")
 end
 return bot.sendPhoto(msg.chat_id, msg.id, photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id,
-'\n*•  ايديه : '..UserId..
-'\n•  معرفه : '..UserInfousername..
-'\n•  رتبته : '..RinkBot..
-'\n•  رسائله : '..TotalMsg..
-'\n•  تعديلاته : '..TotalEdit..
-'\n•  تفاعله : '..TotalMsgT..
-'*', "md")
+'\n•  ID : '..UserId..
+'\n•  USE : '..UserInfousername..
+'\n•  STE : '..RinkBot..
+'\n•  MSG : '..TotalMsg..
+' ', "md")
 else
 return send(msg_chat_id,msg_id,
-'\n*•  ايديه : '..UserId..
-'\n•  معرفه : '..UserInfousername..
-'\n•  رتبته : '..RinkBot..
-'\n•  رسائله : '..TotalMsg..
-'\n•  تعديلاته : '..TotalEdit..
-'\n•  تفاعله : '..TotalMsgT..
-'*',"md",true) 
+'\n•  ID : '..UserId..
+'\n•  USE : '..UserInfousername..
+'\n•  STE : '..RinkBot..
+'\n•  MSG : '..TotalMsg..
+' ',"md",true) 
 end
 else
 return send(msg_chat_id,msg_id,
-'\n*•  ايديه : '..UserId..
-'\n•  معرفه : '..UserInfousername..
-'\n•  رتبته : '..RinkBot..
-'\n•  رسائله : '..TotalMsg..
-'\n•  تعديلاته : '..TotalEdit..
-'\n•  تفاعله : '..TotalMsgT..
-'*',"md",true) 
+'\n•  ID : '..UserId..
+'\n•  USE : '..UserInfousername..
+'\n•  STE : '..RinkBot..
+'\n•  MSG : '..TotalMsg..
+' ',"md",true) 
 end
 end
 
@@ -5387,15 +5373,11 @@ if UserInfo.Fastbots  == "error" and UserInfo.code == 6 then
 return send(msg_chat_id,msg_id,"\n•  عذرآ لا تستطيع استخدام ايدي خطأ ","md",true)  
 end 
 return send(msg_chat_id,msg_id,
-'◂ اسمه ↫ '..Name_User..
-'\n◂ ايديه ↫ '..UserId..
-'\n◂ معرفه ↫ ['..UserName..']'..
-'\n◂ رتبته ↫ '..RinkBot..
-'\n◂ عدد رسايله ↫ '..TotalMsg..
-'\n◂ عدد تعديلاته ↫ '..TotalEdit..
-'\n◂ تفاعله ↫ '..TotalMsgT..
-'\n◂ البايو ↫ *'..FlterBio(getbio(UserId))..'*'..
-'\n𓆩☆𓆪',"md",true) 
+'\n•  ID : '..UserId..
+'\n•  USE : '..UserInfousername..
+'\n•  STE : '..RinkBot..
+'\n•  MSG : '..TotalMsg..
+' ',"md",true) 
 end
 if text == 'كشف'  and msg.reply_to_message_id ~= 0 then
 if ChannelJoinch(msg) == false then
@@ -5420,13 +5402,11 @@ local TotalMsg = Redis:get(Fast..'Num:Message:User'..msg_chat_id..':'..rep_idd) 
 local TotalEdit = Redis:get(Fast..'Num:Message:Edit'..msg_chat_id..rep_idd) or 0
 local TotalMsgT = Total_message(TotalMsg) 
 return send(msg_chat_id,msg_id,
-'\n*•  ايديه : '..UserId..
-'\n•  معرفه : '..UserInfousername..
-'\n•  رتبته : '..RinkBot..
-'\n•  رسائله : '..TotalMsg..
-'\n•  تعديلاته : '..TotalEdit..
-'\n•  تفاعله : '..TotalMsgT..
-'*',"md",true) 
+'\n•  ID : '..UserId..
+'\n•  USE : '..UserInfousername..
+'\n•  STE : '..RinkBot..
+'\n•  MSG : '..TotalMsg..
+' ',"md",true) 
 end
 if text and text:match('^ايدي @(%S+)$') or text and text:match('^كشف @(%S+)$') then
 if ChannelJoinch(msg) == false then
@@ -5454,13 +5434,11 @@ local TotalMsg = Redis:get(Fast..'Num:Message:User'..msg_chat_id..':'..UserId_In
 local TotalEdit = Redis:get(Fast..'Num:Message:Edit'..msg_chat_id..UserId_Info.id) or 0
 local TotalMsgT = Total_message(TotalMsg) 
 return send(msg_chat_id,msg_id,
-'\n*•  ايديه : '..UserId..
-'\n•  معرفه : @'..UserName..
-'\n•  رتبته : '..RinkBot..
-'\n•  رسائله : '..TotalMsg..
-'\n•  تعديلاته : '..TotalEdit..
-'\n•  تفاعله : '..TotalMsgT..
-'*',"md",true) 
+'\n•  ID : '..UserId..
+'\n•  USE : '..UserInfousername..
+'\n•  STE : '..RinkBot..
+'\n•  MSG : '..TotalMsg..
+' ',"md",true) 
 end
 
 if text == "تفاعلي" then
@@ -5549,74 +5527,98 @@ send(msg_chat_id, msg_id, "•  تم مسح "..NumMessage.. ' رساله', 'md')
 end
 
 
-if msg.content.video_note or msg.content.document or msg.content.audio or msg.content.video or msg.content.voice_note or msg.content.sticker or msg.content.animation or msg.content.photo then      
-Redis:sadd(Fast.."allM"..msg.chat_id, msg.id)
-if Redis:get(Fast.."Status:Del:Media"..msg.chat_id) then    
-local Numbardel = Redis:get(Fast.."allM:numdel"..msg.chat_id) or 200
-local gmedia = Redis:scard(Fast.."allM"..msg.chat_id)  
-if tonumber(gmedia) >= tonumber(Numbardel) then
-local liste = Redis:smembers(Fast.."allM"..msg.chat_id)
+-------
+if msg.content.luatele == "messageSticker" or msg.content.luatele == "messageContact" or msg.content.luatele == "messageVideoNote" or msg.content.luatele == "messageDocument" or msg.content.luatele == "messageVideo" or msg.content.luatele == "messageAnimation" or msg.content.luatele == "messagePhoto" then
+Redis:sadd(Fast..":"..msg.chat_id..":mediaAude:ids",msg.id)  
+end
+if Redis:get(Fast..":"..msg.chat_id..":settings:mediaAude") then
+local gmedia = Redis:scard(Fast..":"..msg.chat_id..":mediaAude:ids")  
+if gmedia >= tonumber(Redis:get(Fast..":mediaAude:utdl"..msg.chat_id) or 200) then
+local liste = Redis:smembers(Fast..":"..msg.chat_id..":mediaAude:ids")
 for k,v in pairs(liste) do
 local Mesge = v
 if Mesge then
-t = "•  تم مسح "..k.." من الوسائط تلقائيا\n•  يمكنك تعطيل الميزه باستخدام الامر ( `تعطيل المسح التلقائي` )"
+t = "*  • تم مسح "..k.." من الوسائط تلقائيا\n  • يمكنك تعطيل الميزه بستخدام الامر* ( `تعطيل المسح التلقائي` )"
 bot.deleteMessages(msg.chat_id,{[1]= Mesge})
 end
 end
-send(msg_chat_id,msg_id, t)
-Redis:del(Fast.."allM"..msg.chat_id)
+bot.sendText(msg.chat_id,msg.id,t,"md",true)
+Redis:del(Fast..":"..msg.chat_id..":mediaAude:ids")
 end
 end
 end
-if text and text:match("^ضع عدد المسح (%d+)$") then  
-if not msg.Creator then
-return send(msg_chat_id,msg_id,'\n*•  هذا الامر يخص { '..Controller_Num(5)..' }* ',"md",true)  
-end
-local Numbardel = text:match("^ضع عدد المسح (%d+)$")
-Redis:set(Fast.."allM:numdel"..msg.chat_id,Numbardel) 
-send(msg_chat_id,msg_id, 'تم تعيين العدد  الى : '..Numbardel)
-end
-if text == "امسح" or text == "مسح الميديا" then
+if text == "تعطيل المسح التلقائي" then
 if ChannelJoinch(msg) == false then
 local reply_markup = bot.replyMarkup{type = 'inline',data = {{{text = Redis:get(Fast..'Chat:Channel:Join:Name'..msg.chat_id), url = 't.me/'..Redis:get(Fast..'Chat:Channel:Join'..msg.chat_id)}, },}}
-return send(msg.chat_id,msg.id,'*\n•  عليك الاشتراك في قناة البوت لأستخدام الاوامر*',"md",false, false, false, false, reply_markup)
+return send(msg.chat_id,msg.id,'*\n• عليك الاشتراك في قناة البوت لأستخدام الاوامر*',"md",false, false, false, false, reply_markup)
 end
 if ChannelJoin(msg) == false then
 local reply_markup = bot.replyMarkup{type = 'inline',data = {{{text = Redis:get(Fast..'Channel:Join:Name'), url = 't.me/'..Redis:get(Fast..'Channel:Join')}, },}}
-return send(msg.chat_id,msg.id,'*\n•  عليك الاشتراك في قناة البوت لأستخدام الاوامر*',"md",false, false, false, false, reply_markup)
-end  
-if not msg.Manger then
-return send(msg_chat_id,msg_id,'\n*•  هذا الامر يخص { '..Controller_Num(6)..' }* ',"md",true)  
+return send(msg.chat_id,msg.id,'*\n• عليك الاشتراك في قناة البوت لأستخدام الاوامر*',"md",false, false, false, false, reply_markup)
+end        
+if not msg.Creator then
+return send(msg_chat_id,msg_id,'\n*• هذا الامر يخص { '..Controller_Num(5)..' }* ',"md",true)  
 end
-local list = Redis:smembers(Fast.."allM"..msg.chat_id)
+Redis:del(Fast.."settings:mediaAude"..msg.chat_id)
+ send(msg_chat_id,msg_id,'• تم تعطيل المسح التلقائي للميديا')
+return false
+end 
+if text == "تفعيل المسح التلقائي" then
+if ChannelJoinch(msg) == false then
+local reply_markup = bot.replyMarkup{type = 'inline',data = {{{text = Redis:get(Fast..'Chat:Channel:Join:Name'..msg.chat_id), url = 't.me/'..Redis:get(Fast..'Chat:Channel:Join'..msg.chat_id)}, },}}
+return send(msg.chat_id,msg.id,'*\n• عليك الاشتراك في قناة البوت لأستخدام الاوامر*',"md",false, false, false, false, reply_markup)
+end
+if ChannelJoin(msg) == false then
+local reply_markup = bot.replyMarkup{type = 'inline',data = {{{text = Redis:get(Fast..'Channel:Join:Name'), url = 't.me/'..Redis:get(Fast..'Channel:Join')}, },}}
+return send(msg.chat_id,msg.id,'*\n• عليك الاشتراك في قناة البوت لأستخدام الاوامر*',"md",false, false, false, false, reply_markup)
+end        
+if not msg.Creator then
+return send(msg_chat_id,msg_id,'\n*• هذا الامر يخص { '..Controller_Num(5)..' }* ',"md",true)  
+end
+Redis:set(Fast.."settings:mediaAude"..msg.chat_id,true)
+send(msg_chat_id,msg_id,'• تم تفعيل المسح التلقائي للميديا')
+return false
+end 
+if text and text:match("^ضع عدد المسح (%d+)$") then  
+if not msg.Creator then
+return send(msg_chat_id,msg_id,'\n*• هذا الامر يخص { '..Controller_Num(5)..' }* ',"md",true)  
+end
+local Numbardel = text:match("^ضع عدد المسح (%d+)$")
+Redis:set(Fast.."mediaAude:utdl"..msg.chat_id,Numbardel) 
+send(msg_chat_id,msg_id, 'تم تعيين العدد  الى : '..Numbardel)
+end
+if text == ("عدد الميديا") then
+bot.sendText(msg.chat_id,msg.id,Reply_Status(msg.sender.user_id,"*  • عدد الميديا هو :  "..Redis:scard(Fast..":"..msg.chat_id..":mediaAude:ids").."*").yu,"md",true)
+end
+
+
+
+
+
+
+if msg.content.luatele == "messageSticker" or msg.content.luatele == "messageContact" or msg.content.luatele == "messageVideoNote" or msg.content.luatele == "messageDocument" or msg.content.luatele == "messageVideo" or msg.content.luatele == "messageAnimation" or msg.content.luatele == "messagePhoto" then
+Redis:sadd(Fast..":"..msg.chat_id..":mediaAude:ids",msg.id)  
+end
+if not Redis:get(Fast..":"..msg.chat_id..":settings:delmsg") then
+if text == ("امسح") and BasicConstructor(msg) then  
+local list = Redis:smembers(Fast..":"..msg.chat_id..":mediaAude:ids")
 for k,v in pairs(list) do
 local Message = v
 if Message then
-t = "•  تم مسح "..k.." من الوسائط الموجوده"
+t = "  • تم مسح "..k.." من الوسائط الموجوده"
 bot.deleteMessages(msg.chat_id,{[1]= Message})
-Redis:del(Fast.."allM"..msg.chat_id)
+Redis:del(Fast..":"..msg.chat_id..":mediaAude:ids")
 end
 end
 if #list == 0 then
-t = "•  لا يوجد ميديا في القروب"
-end
- send(msg_chat_id,msg_id, t)
-end
-if text == ("الميديا") then
-if ChannelJoinch(msg) == false then
-local reply_markup = bot.replyMarkup{type = 'inline',data = {{{text = Redis:get(Fast..'Chat:Channel:Join:Name'..msg.chat_id), url = 't.me/'..Redis:get(Fast..'Chat:Channel:Join'..msg.chat_id)}, },}}
-return send(msg.chat_id,msg.id,'*\n•  عليك الاشتراك في قناة البوت لأستخدام الاوامر*',"md",false, false, false, false, reply_markup)
-end
-if ChannelJoin(msg) == false then
-local reply_markup = bot.replyMarkup{type = 'inline',data = {{{text = Redis:get(Fast..'Channel:Join:Name'), url = 't.me/'..Redis:get(Fast..'Channel:Join')}, },}}
-return send(msg.chat_id,msg.id,'*\n•  عليك الاشتراك في قناة البوت لأستخدام الاوامر*',"md",false, false, false, false, reply_markup)
-end  
-if not msg.Manger then
-return send(msg_chat_id,msg_id,'\n*•  هذا الامر يخص { '..Controller_Num(6)..' }* ',"md",true)  
-end
-local gmria = Redis:scard(Fast.."allM"..msg.chat_id)  
- send(msg_chat_id,msg_id,"•  عدد الميديا الموجود هو (* "..gmria.." *)","md")
-end
+t = "  • لا يوجد ميديا في المجموعة"
+end 
+
+
+
+
+
+------
 
 
 if text == 'المالك' then
@@ -5649,10 +5651,24 @@ Bio = ''
 end
 if photo.total_count > 0 then
 local TestText = "•  Owner🎖 : \n\n•  USE ↦ ["..FlterBio(UserInfo.first_name).."](tg://user?id="..UserInfo.id..")\n \n•  bio ↦ ["..Bio.."]"
+ban = ' '..FlterBio(UserInfo.first_name)..' '
+keyboardd = {} 
+keyboardd.inline_keyboard = {
+{
+{text = ban, url='http://t.me/'..UserInfo.username..''},
+},
+}
 local msg_id = msg.id/2097152/0.5 
 return https.request("https://api.telegram.org/bot"..Token..'/sendPhoto?chat_id='..msg.chat_id..'&caption='..URL.escape(TestText)..'&photo='..photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id..'&reply_to_message_id='..msg_id..'&parse_mode=markdown')  
 else
 local TestText = "•  Owner🎖 : \n\n•  USE ↦ ["..FlterBio(UserInfo.first_name).."](tg://user?id="..UserInfo.id..")\n \n•  bio ↦ ["..Bio.."]"
+ban = ' '..FlterBio(UserInfo.first_name)..' '
+keyboardd = {} 
+keyboardd.inline_keyboard = {
+{
+{text = ban, url='http://t.me/'..UserInfo.username..''},
+},
+}
 local msg_id = msg.id/2097152/0.5 
 return https.request("https://api.telegram.org/bot"..Token..'/sendMessage?chat_id=' .. msg.chat_id .. '&text=' .. URL.escape(TestText).."&reply_to_message_id="..msg_id.."&parse_mode=markdown")
 end
@@ -5779,7 +5795,7 @@ end
 send(msg_chat_id,msg_id,listall,"md",true)  
 end
 
-if text == "قفل ارسال القناة" or text == "قفل القناه" then 
+if text == "قفل ارسال القناة" or text == "قفل القناه" or text == "قفل القناة" then  
 if not msg.Manger then
 return send(msg_chat_id,msg_id,'\n*•  هذا الامر يخص { '..Controller_Num(6)..' }* ',"md",true)  
 end
@@ -5795,7 +5811,7 @@ Redis:set(Fast.."Lock:SenderChat"..msg_chat_id,true)
 send(msg_chat_id,msg_id,Reply_Status(senderr,"•  تم قفـل ارسال القناة").Lock,"md",true)  
 return false
 end 
-if text == "فتح ارسال القناة" or text == "فتح القناه" then 
+if text == "فتح ارسال القناة" or text == "فتح القناه" or text == "فتح القناة" then  
 if not msg.Manger then
 return send(msg_chat_id,msg_id,'\n*•  هذا الامر يخص { '..Controller_Num(6)..' }* ',"md",true)  
 end
@@ -5811,7 +5827,7 @@ Redis:del(Fast.."Lock:SenderChat"..msg_chat_id)
 send(msg_chat_id,msg_id,Reply_Status(senderr,"•  تم فتح ارسال القناة").unLock,"md",true)  
 return false
 end 
-if text == "قفل الفشار" then 
+if text == "قفل القذف" then 
 if not msg.Admin then
 return send(msg_chat_id,msg_id,'\n*•  هذا الامر يخص { '..Controller_Num(7)..' }* ',"md",true)  
 end
@@ -5824,10 +5840,10 @@ local reply_markup = bot.replyMarkup{type = 'inline',data = {{{text = Redis:get(
 return send(msg.chat_id,msg.id,'*\n•  عليك الاشتراك في قناة البوت لأستخدام الاوامر*',"md",false, false, false, false, reply_markup)
 end
 Redis:set(Fast.."Lock:phshar"..msg_chat_id,true) 
-send(msg_chat_id,msg_id,Reply_Status(senderr,"•  تم قفـل الفشار").Lock,"md",true)  
+send(msg_chat_id,msg_id,Reply_Status(senderr,"•  تم قفـل القذف").Lock,"md",true)  
 return false
 end 
-if text == "فتح الفشار" then 
+if text == "فتح القذف" then 
 if not msg.Admin then
 return send(msg_chat_id,msg_id,'\n*•  هذا الامر يخص { '..Controller_Num(7)..' }* ',"md",true)  
 end
@@ -5840,7 +5856,7 @@ local reply_markup = bot.replyMarkup{type = 'inline',data = {{{text = Redis:get(
 return send(msg.chat_id,msg.id,'*\n•  عليك الاشتراك في قناة البوت لأستخدام الاوامر*',"md",false, false, false, false, reply_markup)
 end 
 Redis:del(Fast.."Lock:phshar"..msg_chat_id)  
-send(msg_chat_id,msg_id,Reply_Status(senderr,"•  تم فتح الفشار").unLock,"md",true)  
+send(msg_chat_id,msg_id,Reply_Status(senderr,"•  تم فتح القذف").unLock,"md",true)  
 return false
 end 
 if text == "قفل الكفر" or text == "قفل السب" then 
@@ -8871,7 +8887,7 @@ data = {
 {text = GetSetieng(msg_chat_id).alkfr, data = '&'},{text = 'الكفر : ', data =senderr..'/'.. 'Status_alkfr'},
 },
 {
-{text = GetSetieng(msg_chat_id).alphsar, data = '&'},{text = 'الفشار : ', data =senderr..'/'.. 'Status_alphsar'},
+{text = GetSetieng(msg_chat_id).alphsar, data = '&'},{text = 'القذف : ', data =senderr..'/'.. 'Status_alphsar'},
 },
 {
 {text = '- التالي ... ', data =senderr..'/'.. 'NextSeting'}
@@ -13901,7 +13917,7 @@ if Get_Chat.id then
 local statusMem = bot.getChatMember(Get_Chat.id,Fast)
 if statusMem.status.Fastbots == "chatMemberStatusMember" then
 x = x + 1
-send(Get_Chat.id,0,'*•  البوت عضو في القروب سوف اغادر ويمكنك تفعيلي مره اخرى *',"md")
+send(Get_Chat.id,0,'*•  هيي انا عضو هنا بغادر وتقدر تفعلني متى ماودك *',"md")
 Redis:srem(Fast..'ChekBotAdd',Get_Chat.id)
 local keys = Redis:keys(Fast..'*'..Get_Chat.id)
 for i = 1, #keys do
@@ -14591,34 +14607,35 @@ if text == '/start' then
 Redis:sadd(Fast..'Num:User:Pv',senderr)  
 if not msg.Asasy then
 if not Redis:get(Fast.."Start:Bot") then
-local CmdStart = '*\n•  أهلآ بك في بوت '..(Redis:get(Fast.."Name:Bot") or "فاست")..
-'\n•  اختصاص البوت حماية المجموعات'..
-'\n•  لتفعيل البوت عليك اتباع مايلي ...'..
-'\n•  اضف البوت الى مجموعتك'..
-'\n•  ارفعه ادمن {مشرف}'..
-'\n•  ارسل كلمة { تفعيل } ليتم تفعيل القروب'..
-'\n•  مطور البوت ← {@'..UserSudo..'}*'
+local CmdStart = '\n• أهلاً بك عزيزي انا بوت اسمي '..(Redis:get(Fast.."Name:Bot") or "فاست")..
+'\n• اختصاص البوت حماية المجموعات'..
+'\n• اضف البوت الى مجموعتك .'..
+'\n• ارفعه ادمن مشرف'..
+'\n• ارفعه مشرف وارسل تفعيل ليتم تفعيل المجموعة'..
+'\n• مطور البوت ← ["..FlterBio(UserInfo.first_name).."](tg://user?id="..UserInfo.id..")'
+ban = ' '..FlterBio(UserInfo.first_name)..' '
 local reply_markup = bot.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '➕ اضفني لمجموعتك', url = 't.me/'..UserBot..'?startgroup=new'}, 
+{text = 'اضفني لمجموعتك', url = 't.me/'..UserBot..'?startgroup=new'}, 
 },
 {
-{text = 'قناه السورس', url = 'http://t.me/'..chsource..''}, 
+{text = ban, url = 'http://t.me/'..UserSudo..''}, 
 },
 }
 }
 return send(msg_chat_id,msg_id,CmdStart,"md",false, false, false, false, reply_markup)
 else
+ban = ' '..FlterBio(UserInfo.first_name)..' '
 local reply_markup = bot.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '➕ اضفني لمجموعتك', url = 't.me/'..UserBot..'?startgroup=new'}, 
+{text = 'اضفني لمجموعتك', url = 't.me/'..UserBot..'?startgroup=new'}, 
 },
 {
-{text = 'قناه السورس', url = 'http://t.me/'..chsource..''}, 
+{text = ban, url = 'http://t.me/'..UserSudo..''}, 
 },
 }
 }
@@ -14649,7 +14666,7 @@ data = {
 {text = '• اذاعه بالتثبيت ',type = 'text'},
 },
 {
-{text = '• قائمه MY',type = 'text'},{text = '• قائمه M',type = 'text'},{text = 'قائمه العام', type = 'text'},
+{text = '• قائمه MY',type = 'text'},{text = '• قائمه M',type = 'text'},{text = '• قائمه العام', type = 'text'},
 },
 {
 {text = '• مسح قائمه MY',type = 'text'},{text = '• مسح قائمه M',type = 'text'},{text = 'مسح قائمه العام', type = 'text'},
@@ -14820,7 +14837,7 @@ if Get_Chat.id then
 local statusMem = bot.getChatMember(Get_Chat.id,Fast)
 if statusMem.status.Fastbots == "chatMemberStatusMember" then
 x = x + 1
-send(Get_Chat.id,0,'*•  البوت عضو في القروب سوف اغادر ويمكنك تفعيلي مره اخرى *',"md")
+send(Get_Chat.id,0,'*•  هيي انا عضو هنا بغادر وتقدر تفعلني متى ماودك *',"md")
 Redis:srem(Fast..'ChekBotAdd',Get_Chat.id)
 local keys = Redis:keys(Fast..'*'..Get_Chat.id)
 for i = 1, #keys do
