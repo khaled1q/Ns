@@ -5527,7 +5527,7 @@ send(msg_chat_id, msg_id, "•  تم مسح "..NumMessage.. ' رساله', 'md')
 end
 
 
--------
+
 if msg.content.luatele == "messageSticker" or msg.content.luatele == "messageContact" or msg.content.luatele == "messageVideoNote" or msg.content.luatele == "messageDocument" or msg.content.luatele == "messageVideo" or msg.content.luatele == "messageAnimation" or msg.content.luatele == "messagePhoto" then
 Redis:sadd(Fast..":"..msg.chat_id..":mediaAude:ids",msg.id)  
 end
@@ -5545,7 +5545,7 @@ end
 bot.sendText(msg.chat_id,msg.id,t,"md",true)
 Redis:del(Fast..":"..msg.chat_id..":mediaAude:ids")
 end
-
+end
 
 if text == "تعطيل المسح التلقائي" then
 if ChannelJoinch(msg) == false then
