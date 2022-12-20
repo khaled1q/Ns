@@ -5545,8 +5545,8 @@ end
 bot.sendText(msg.chat_id,msg.id,t,"md",true)
 Redis:del(Fast..":"..msg.chat_id..":mediaAude:ids")
 end
-end
-end
+
+
 if text == "تعطيل المسح التلقائي" then
 if ChannelJoinch(msg) == false then
 local reply_markup = bot.replyMarkup{type = 'inline',data = {{{text = Redis:get(Fast..'Chat:Channel:Join:Name'..msg.chat_id), url = 't.me/'..Redis:get(Fast..'Chat:Channel:Join'..msg.chat_id)}, },}}
@@ -5613,7 +5613,7 @@ end
 if #list == 0 then
 t = "  • لا يوجد ميديا في المجموعة"
 end 
-
+end
 
 
 
